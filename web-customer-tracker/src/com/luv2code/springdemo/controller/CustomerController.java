@@ -2,12 +2,11 @@ package com.luv2code.springdemo.controller;
 
 import java.util.List;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.luv2code.springdemo.dao.CustomerDAO;
@@ -18,14 +17,14 @@ import com.luv2code.springdemo.service.CustomerService;
 @RequestMapping("/customer")
 public class CustomerController {
 
-	//need to inject out customer service
+	// need to inject our customer service
 	@Autowired
 	private CustomerService customerService;
 	
 	@GetMapping("/list")
 	public String listCustomers(Model theModel) {
 		
-		// get customers from the dao
+		// get customers from the service
 		List<Customer> theCustomers = customerService.getCustomers();
 				
 		// add the customers to the model
@@ -34,6 +33,10 @@ public class CustomerController {
 		return "list-customers";
 	}
 	
+	@GetMapping("/showFormForAdd1")
+	public String showFormForAdd(Model theModel){
+	return "customer-form";
+	}
 }
 
 
