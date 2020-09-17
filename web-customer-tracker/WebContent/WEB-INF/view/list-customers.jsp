@@ -43,7 +43,14 @@ class="add-button"/>
 				<!-- loop over and print our customers -->
 				<c:forEach var="tempCustomer" items="${customers}">
 				
+				<!-- link for update -->
 				<c:url var="updateLink" value="/customer/showFormForUpdate">
+<c:param name="customerId" value="${tempCustomer.id}" />
+</c:url>
+               
+               
+               <!-- link for delete -->
+				<c:url var="deleteLink" value="/customer/delete">
 <c:param name="customerId" value="${tempCustomer.id}" />
 </c:url>
 				
@@ -52,7 +59,10 @@ class="add-button"/>
 						<td> ${tempCustomer.lastName} </td>
 						<td> ${tempCustomer.email} </td>
 						<td>
-						<a href="${updateLink}">Update></a>
+						<a href="${updateLink}">Update</a>
+						|
+						<a href="${deleteLink}"
+							   onclick="if (!(confirm('Are you sure you want to delete this customer?'))) return false">Delete</a>
 						</td>
 					</tr>
 				
