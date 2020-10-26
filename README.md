@@ -1,0 +1,17 @@
+FOR THE PROGRAM TO WORK CORRECTLY, IT IS NECESSARY TO DO 2 STEPS
+1.CREATE USER IN MYSQL THAT HAS LOGIN springstudent AND PASSWORD springstudent or change it on other in config file .
+2. IN NEW USER IN MYSQL CREATE A NEW DATABASE . JUST COPY THE TEXT BELOW AND INSERT INTO NEW DATABASE.
+
+CREATE DATABASE  IF NOT EXISTS web_customer_tracker;
+USE web_customer_tracker;
+
+DROP TABLE IF EXISTS customer;
+
+CREATE TABLE customer (
+  id int(11) NOT NULL AUTO_INCREMENT,
+  first_name varchar(45) DEFAULT NULL,
+  last_name varchar(45) DEFAULT NULL,
+  email varchar(45) DEFAULT NULL,
+  PRIMARY KEY (id)
+);
+
